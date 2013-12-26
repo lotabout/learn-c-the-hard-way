@@ -38,6 +38,9 @@ tests: CFLAGS += $(TARGET)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
+$(TESTS):%:%.c
+	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
+
 valgrind:
 	VALGRIND="valgrind --log-file=/tmp/valgrind-%p.log" $(MAKE)
 

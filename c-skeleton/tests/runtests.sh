@@ -2,9 +2,9 @@
 
 echo "Running unit tests:"
 
-for i in tests/*_tests
+for i in tests/*_tests;
 do
-    if [[ -f $i ]]; then
+    if [ -f $i ]; then
         if $VALGRIND ./$i 2>> tests/tests.log; then
             echo $i PASS
         else
