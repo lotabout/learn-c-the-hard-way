@@ -20,14 +20,14 @@
     int main(int argc, const char *argv[]) \
     { \
         debug("----- RUNNING: %s", argv[0]); \
-        printf("----\nRUNNING: %s\n", argv[0]); \
+        printf("================================\nRUNNING: %s\n", argv[0]); \
         char *result = name(); \
         if (result != 0) { \
             printf("FAILED: %s\n", result); \
         } else { \
             printf("ALL TESTS PASSED\n"); \
         } \
-        printf("Tests run: %d\n", tests_run); \
+        printf("Tests run: %d\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", tests_run); \
         exit(result != 0); \
     }
 

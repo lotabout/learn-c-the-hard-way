@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running unit tests:"
+echo "=========== Running unit tests ============="
 
 for i in tests/*_tests;
 do
@@ -16,4 +16,4 @@ do
     fi
 done
 
-echo ""
+echo "=========== Unit tests Done  ============="
