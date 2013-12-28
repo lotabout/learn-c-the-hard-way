@@ -1,0 +1,6 @@
+# backup
+*~
+*.swp
+
+# objects
+*.o
