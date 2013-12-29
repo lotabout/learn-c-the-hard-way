@@ -19,11 +19,15 @@ int list_bubble_sort(list_t *list, list_compare cmp)
         sorted = true;
 
         node_t *cur;
+        node_t *last = NULL;
         list_for_each(list, cur) {
+            if (cur == last)
+                break;
             if ((cur->next != list->head) && 
                 cmp(cur->data, cur->next->data) > 0) {
                 node_swap(cur, cur->next);
                 sorted = false;
+                last = cur;
             }
         }
     } while (!sorted);
