@@ -13,6 +13,7 @@ list_t *list_create()
     tmp->head->data = NULL;
     tmp->head->next = tmp->head;
     tmp->head->prev = tmp->head;
+    tmp->count = 0;
 
     return tmp;
 error:
@@ -26,8 +27,8 @@ void list_destroy(list_t **list_ptr)
     check(list_ptr && *list_ptr, "Invalid pointer to list.");
 
     list_t *list = *list_ptr;
-    node_t *cur = NULL;
-    list_for_each(list, cur) {
+    node_t *cur , *tmp;
+    list_for_each_safe(list, cur, tmp) {
         list_remove(list, cur);
     }
 
@@ -141,4 +142,24 @@ void *list_remove(list_t *list, node_t *node)
 
 error:
     return NULL;
+}
+
+bool list_is_empty(list_t *list)
+{
+    return (list == NULL) || (list->head == list->head->next);
+}
+
+int list_count(list_t *list) 
+{
+    return (list == NULL) ? (-1) : (list->count);
+}
+
+void *list_first(list_t *list)
+{
+    return (list == NULL) ? NULL : (list->head->next->data);
+}
+
+void *list_last(list_t *list)
+{
+    return (list == NULL) ? NULL : (list->head->prev->data);
 }
